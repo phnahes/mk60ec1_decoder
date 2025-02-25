@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK60EC1 Longcoding Decoder</title>
+    <title>ABS - MK60EC1 Longcoding Decoder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h2>MK60EC1 Longcoding Decoder</h2>
-        <textarea id="longcoding">A43B60F8092600FF250F06E790200041A1180070</textarea>
-        <button onclick="decodeLongcoding()">Decodificar</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Byte</th>
-                    <th>Valor</th>
-                    <th>Bits</th>
-                    <th>Descrição</th>
-                </tr>
-            </thead>
-            <tbody id="decodedTable"></tbody>
-        </table>
+    <div class="content">
+
+        <div class="container">
+            <h2>ABS - MK60EC1 Longcoding Decoder</h2>
+            <div class="textarea-container">
+                <textarea id="longcoding">A43B60F8092600FF250F06E790200041A1180070</textarea>
+            </div> <button onclick="decodeLongcoding()">Decodificar</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Byte</th>
+                        <th>Valor</th>
+                        <th>Bits</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="decodedTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Rodapé com link do repositório -->
+        <footer>
+            <p><a href="https://github.com/seu-repositorio/mk60ec1_decoder" target="_blank">GitHub</a></p>
+        </footer>
     </div>
     <script src="decoder.js"></script>
 </body>
+
 </html>

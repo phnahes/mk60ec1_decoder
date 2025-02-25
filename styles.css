@@ -1,4 +1,4 @@
-body { 
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -9,23 +9,44 @@ body {
     min-height: 100vh;
 }
 
-.container { 
-    background: white; 
-    padding: 20px; 
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%; 
-    max-width: 1100px; /* Ajustado para melhor espaçamento */
-    overflow-x: auto; /* Adiciona rolagem horizontal caso necessário */
+.content {
+    min-height: calc(100vh - 100px);
+    /* Garante que o conteúdo ocupe quase toda a tela */
+    padding-bottom: 50px;
+    /* Espaço extra para o rodapé */
 }
 
-textarea { 
-    width: 100%; 
-    height: 50px; 
-    font-size: 16px;
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1100px;
+    /* Ajustado para melhor espaçamento */
+    overflow-x: auto;
+    /* Adiciona rolagem horizontal caso necessário */
+}
+
+textarea {
+    width: 100%;
+    /* Garante que o campo ocupa toda a largura do container */
+    max-width: 100%;
+    /* Evita que ele ultrapasse o container */
+    box-sizing: border-box;
+    /* Inclui padding e borda dentro da largura definida */
     padding: 10px;
+    /* Adiciona um espaçamento interno */
+    font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    resize: none;
+    /* Evita redimensionamento manual */
+}
+
+.textarea-container {
+    width: 100%;
+    overflow: hidden;
 }
 
 button {
@@ -45,92 +66,155 @@ button:hover {
     background: #0056b3;
 }
 
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 20px;
-    font-size: 14px; /* Mantém o texto legível sem quebrar */
-    table-layout: fixed; /* Garante que todas as colunas tenham tamanhos iguais */
+/* Ajustando a largura da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    /* Permite que as colunas sejam ajustadas automaticamente */
 }
 
-th, td { 
-    border: 1px solid black; 
-    padding: 10px; /* Melhor espaçamento para evitar quebra */
-    text-align: left; 
-    word-wrap: break-word;
-    overflow-wrap: break-word; /* Garante que as palavras longas quebrem */
+/* Ajustando as larguras das colunas */
+th:nth-child(1),
+td:nth-child(1) {
+    /* Byte */
+    width: 8%;
+    min-width: 40px;
 }
 
-th {
-    background: #007BFF;
-    color: white;
+th:nth-child(2),
+td:nth-child(2) {
+    /* Valor */
+    width: 10%;
+    min-width: 50px;
 }
 
+th:nth-child(3),
+td:nth-child(3) {
+    /* Bits */
+    width: 25%;
+    min-width: 130px;
+    white-space: nowrap;
+    /* Mantém os bits organizados */
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    /* Descrição */
+    width: 57%;
+    min-width: 200px;
+    text-align: left;
+}
+
+/* Para melhorar a exibição dos bits */
 .bit-box-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* Mantém os bits em uma única linha */
     justify-content: center;
     align-items: center;
     gap: 2px;
+    overflow-x: auto;
 }
 
-.bit-box { 
-    display: inline-block; 
-    width: 22px; /* Ajustado para garantir espaçamento correto */
-    height: 22px; 
-    text-align: center; 
+/* Melhorando a exibição dos bits */
+.bit-box {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
     font-weight: bold;
-    font-size: 14px; /* Ajustado para melhor visualização */
+    font-size: 14px;
     padding: 3px;
-    line-height: 22px; /* Mantém alinhado verticalmente */
+    line-height: 22px;
     border-radius: 4px;
-    background-color: #f0f0f0; /* Fundo levemente cinza para facilitar a leitura */
+    background-color: #f0f0f0;
 }
 
-.bit-on { 
-    color: blue; /* "1" azul */
-    background-color: #e0f7ff; /* Fundo azul claro para destacar */
+.bit-on {
+    color: blue;
+    background-color: #e0f7ff;
 }
 
-.bit-off { 
-    color: gray; /* "0" cinza */
-    background-color: #f0f0f0; /* Mantém um fundo leve para diferenciação */
+.bit-off {
+    color: gray;
+    background-color: #f0f0f0;
 }
 
-/* Responsividade */
+/* Melhorando o comportamento responsivo */
 @media screen and (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
     table {
-        font-size: 12px; /* Ajusta para telas menores */
+        font-size: 12px;
     }
 
     .bit-box {
-        width: 20px;
+        width: 18px;
         font-size: 12px;
-        line-height: 20px;
+        line-height: 18px;
     }
 
     .container {
         padding: 15px;
         width: 100%;
+        overflow-x: auto;
+        /* Adiciona rolagem horizontal se necessário */
+    }
+
+    /* Torna a descrição mais compacta */
+    th:nth-child(4),
+    td:nth-child(4) {
+        width: 50%;
+        min-width: 180px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    th, td {
-        padding: 6px;
+
+    th,
+    td {
+        padding: 5px;
     }
 
     .bit-box {
-        width: 18px;
+        width: 16px;
         font-size: 10px;
-        line-height: 18px;
+        line-height: 16px;
     }
 
     button {
-        font-size: 16px;
+        font-size: 14px;
     }
+
+    /* Garante que a tabela role corretamente */
+    .container {
+        overflow-x: auto;
+    }
+
+    th:nth-child(4),
+    td:nth-child(4) {
+        width: 45%;
+        min-width: 150px;
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+    /* Mantém o rodapé no fluxo normal */
+    margin-top: 20px;
+    /* Adiciona um espaçamento extra */
+}
+
+footer a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
