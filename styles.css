@@ -1,4 +1,4 @@
-body { 
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -9,18 +9,18 @@ body {
     min-height: 100vh;
 }
 
-.container { 
-    background: white; 
-    padding: 20px; 
+.container {
+    background: white;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%; 
-    max-width: 800px;
+    width: 95%;
+    max-width: 900px;
 }
 
-textarea { 
-    width: 100%; 
-    height: 50px; 
+textarea {
+    width: 100%;
+    height: 50px;
     font-size: 16px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -44,16 +44,20 @@ button:hover {
     background: #0056b3;
 }
 
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 20px; 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    /* Aumenta um pouco a fonte para melhor legibilidade */
 }
 
-th, td { 
-    border: 1px solid black; 
-    padding: 8px; 
-    text-align: left; 
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    /* Mais espaço dentro das células */
+    text-align: left;
 }
 
 th {
@@ -61,12 +65,61 @@ th {
     color: white;
 }
 
-.bit-box { 
-    display: inline-block; 
-    width: 20px; 
-    text-align: center; 
-    font-weight: bold; 
+td:first-child,
+th:first-child {
+    width: 5%;
+    text-align: center;
 }
 
-.bit-on { color: green; }
-.bit-off { color: red; }
+td:nth-child(2) {
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+}
+
+td:nth-child(3) {
+    width: 20%;
+    text-align: center;
+}
+
+td:nth-child(4) {
+    width: 65%;
+    word-wrap: break-word;
+}
+
+.bit-box {
+    display: inline-block;
+    width: 25px;
+    /* Aumentado para não quebrar */
+    text-align: center;
+    font-weight: bold;
+}
+
+.bit-on {
+    color: blue;
+    /* Define o 1 como azul */
+}
+
+.bit-off {
+    color: gray;
+    /* Define o 0 como cinza */
+}
+
+@media (max-width: 768px) {
+
+    table,
+    th,
+    td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .bit-box {
+        width: 15px;
+        font-size: 12px;
+    }
+
+    td:nth-child(4) {
+        font-size: 12px;
+    }
+}
