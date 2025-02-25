@@ -15,8 +15,8 @@ body {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%; 
-    max-width: 1000px; /* Aumentado para melhor ajuste */
-    overflow-x: auto; /* Para rolagem horizontal caso necessário */
+    max-width: 1100px; /* Ajustado para melhor espaçamento */
+    overflow-x: auto; /* Adiciona rolagem horizontal caso necessário */
 }
 
 textarea { 
@@ -50,13 +50,15 @@ table {
     border-collapse: collapse; 
     margin-top: 20px;
     font-size: 14px; /* Mantém o texto legível sem quebrar */
+    table-layout: fixed; /* Garante que todas as colunas tenham tamanhos iguais */
 }
 
 th, td { 
     border: 1px solid black; 
-    padding: 12px; /* Melhor espaçamento para evitar quebra */
+    padding: 10px; /* Melhor espaçamento para evitar quebra */
     text-align: left; 
     word-wrap: break-word;
+    overflow-wrap: break-word; /* Garante que as palavras longas quebrem */
 }
 
 th {
@@ -68,23 +70,31 @@ th {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    gap: 2px;
 }
 
 .bit-box { 
     display: inline-block; 
-    width: 28px; /* Aumentado para melhor alinhamento */
+    width: 22px; /* Ajustado para garantir espaçamento correto */
+    height: 22px; 
     text-align: center; 
     font-weight: bold;
-    font-size: 14px; /* Ajustado para não estourar layout */
+    font-size: 14px; /* Ajustado para melhor visualização */
     padding: 3px;
+    line-height: 22px; /* Mantém alinhado verticalmente */
+    border-radius: 4px;
+    background-color: #f0f0f0; /* Fundo levemente cinza para facilitar a leitura */
 }
 
 .bit-on { 
     color: blue; /* "1" azul */
+    background-color: #e0f7ff; /* Fundo azul claro para destacar */
 }
 
 .bit-off { 
     color: gray; /* "0" cinza */
+    background-color: #f0f0f0; /* Mantém um fundo leve para diferenciação */
 }
 
 /* Responsividade */
@@ -98,8 +108,9 @@ th {
     }
 
     .bit-box {
-        width: 20px; /* Diminui os bits em telas pequenas */
+        width: 20px;
         font-size: 12px;
+        line-height: 20px;
     }
 
     .container {
@@ -110,12 +121,13 @@ th {
 
 @media screen and (max-width: 480px) {
     th, td {
-        padding: 8px;
+        padding: 6px;
     }
 
     .bit-box {
         width: 18px;
         font-size: 10px;
+        line-height: 18px;
     }
 
     button {
