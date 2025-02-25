@@ -67,57 +67,60 @@ button:hover {
 }
 
 /* Ajustando a largura da tabela */
+/* Estilo da tabela */
 table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: auto;
-    /* Permite que as colunas sejam ajustadas automaticamente */
+    /* Garante que todas as células fiquem corretamente separadas */
+    table-layout: fixed;
+    /* Mantém as colunas com largura fixa */
 }
 
-/* Ajustando as larguras das colunas */
-th:nth-child(1),
-td:nth-child(1) {
-    /* Byte */
-    width: 8%;
-    min-width: 40px;
+/* Bordas das células */
+th,
+td {
+    border: 1px solid #ccc;
+    /* Bordas mais visíveis */
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
 }
 
-th:nth-child(2),
-td:nth-child(2) {
-    /* Valor */
-    width: 10%;
-    min-width: 50px;
+/* Alternância de cores nas linhas para melhorar a leitura */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Cinza bem claro */
 }
 
-th:nth-child(3),
-td:nth-child(3) {
-    /* Bits */
-    width: 25%;
-    min-width: 130px;
-    white-space: nowrap;
-    /* Mantém os bits organizados */
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* Branco */
 }
 
-th:nth-child(4),
-td:nth-child(4) {
-    /* Descrição */
-    width: 57%;
-    min-width: 200px;
-    text-align: left;
+/* Melhorar visualização no mobile */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+        border: 1px solid #bbb;
+        /* Melhora visualização em telas menores */
+    }
 }
 
-/* Para melhorar a exibição dos bits */
+/* Garantindo que os bits não quebrem */
 .bit-box-container {
     display: flex;
     flex-wrap: nowrap;
-    /* Mantém os bits em uma única linha */
     justify-content: center;
-    align-items: center;
     gap: 2px;
-    overflow-x: auto;
 }
 
-/* Melhorando a exibição dos bits */
+/* Ajuste dos bits */
 .bit-box {
     display: inline-block;
     width: 22px;
@@ -128,9 +131,11 @@ td:nth-child(4) {
     padding: 3px;
     line-height: 22px;
     border-radius: 4px;
-    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    /* Adiciona borda para destacar */
 }
 
+/* Melhor separação entre os bits */
 .bit-on {
     color: blue;
     background-color: #e0f7ff;
@@ -141,72 +146,65 @@ td:nth-child(4) {
     background-color: #f0f0f0;
 }
 
-/* Melhorando o comportamento responsivo */
-@media screen and (max-width: 768px) {
-    table {
-        font-size: 12px;
-    }
-
-    .bit-box {
-        width: 18px;
-        font-size: 12px;
-        line-height: 18px;
-    }
-
-    .container {
-        padding: 15px;
-        width: 100%;
-        overflow-x: auto;
-        /* Adiciona rolagem horizontal se necessário */
-    }
-
-    /* Torna a descrição mais compacta */
-    th:nth-child(4),
-    td:nth-child(4) {
-        width: 50%;
-        min-width: 180px;
-    }
-}
-
+/* Garantir que no mobile ele não quebre */
 @media screen and (max-width: 480px) {
 
     th,
     td {
         padding: 5px;
+        font-size: 10px;
     }
 
     .bit-box {
-        width: 16px;
+        width: 18px;
         font-size: 10px;
-        line-height: 16px;
+        line-height: 18px;
     }
 
     button {
-        font-size: 14px;
-    }
-
-    /* Garante que a tabela role corretamente */
-    .container {
-        overflow-x: auto;
-    }
-
-    th:nth-child(4),
-    td:nth-child(4) {
-        width: 45%;
-        min-width: 150px;
+        font-size: 16px;
     }
 }
 
+/* Garantindo que as divisões permaneçam visíveis */
+td:nth-child(1),
+th:nth-child(1) {
+    /* Byte */
+    width: 7%;
+    min-width: 40px;
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+    /* Valor */
+    width: 10%;
+    min-width: 50px;
+}
+
+td:nth-child(3),
+th:nth-child(3) {
+    /* Bits */
+    width: 25%;
+    min-width: 120px;
+    text-align: center;
+}
+
+td:nth-child(4),
+th:nth-child(4) {
+    /* Descrição */
+    width: 58%;
+    min-width: 200px;
+    text-align: left;
+}
+
+/* Melhor espaçamento para o rodapé */
 footer {
     width: 100%;
     background-color: #f1f1f1;
     text-align: center;
     padding: 10px;
     font-size: 14px;
-    position: relative;
-    /* Mantém o rodapé no fluxo normal */
     margin-top: 20px;
-    /* Adiciona um espaçamento extra */
 }
 
 footer a {
